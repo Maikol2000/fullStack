@@ -2,6 +2,8 @@ import React from "react";
 
 import { Form, Input, InputNumber, Button } from "antd";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { actAuthSignUp } from "./module/action";
 const layout = {
   labelCol: {
     span: 8,
@@ -23,9 +25,9 @@ const validateMessages = {
 };
 
 export default function SignUp() {
-
+  const dispatch = useDispatch()
   const onFinish = (values) => {
-    console.log(values);
+    dispatch(actAuthSignUp(values))
   };
   
   return (
