@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Form, Input, InputNumber, Button } from "antd";
 import { Link } from "react-router-dom";
@@ -25,11 +25,11 @@ const validateMessages = {
 };
 
 export default function SignUp() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const onFinish = (values) => {
-    dispatch(actAuthSignUp(values))
+    dispatch(actAuthSignUp(values.user));
   };
-  
+
   return (
     <>
       <>
@@ -61,7 +61,10 @@ export default function SignUp() {
           >
             <Input />
           </Form.Item>
-          <Form.Item name={["user", "website"]} label="Website">
+          <Form.Item name={["user", "password"]} label="Password">
+            <Input />
+          </Form.Item>
+          <Form.Item name={["user", "c_password"]} label="Register Password">
             <Input />
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>

@@ -4,7 +4,7 @@ import thunk from "redux-thunk"
 
 import { dangKyReducer } from "../container/module/reducer"
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     dangKyReducer
 })
 

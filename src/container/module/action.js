@@ -17,7 +17,8 @@ export const actAuthSignUp = (userData) => {
     return async dispatch => {
         dispatch(actAuthSignUpRequest)
         try {
-            const { data } = await api.dangKy()
+            const data = await api.dangKy(userData)
+            console.log(data.data)
             dispatch(actAuthSignUpSuccess(data))
         } catch (error) {
             dispatch(actAuthSignUpFail(error))
